@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
 	{
 		for (int i = 0; i < enemies.Count; i++)
 		{
-			enemies[0].MoveEnemy ();
+			enemies[i].MoveEnemy ();
 		}
 	}
 
