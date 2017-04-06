@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : ActionsController {
 
+	public int damage;
+
 	private Transform player;
 
 	protected override void Start () {
@@ -21,8 +23,10 @@ public class EnemyController : ActionsController {
 		moveVertical = player.position.y - transform.position.y;
 		moveHorizontal = player.position.x - transform.position.x;
 
-		if (Mathf.Abs (player.position.x - transform.position.x) < 1.5 && Mathf.Abs (player.position.y - transform.position.y) < 1.5) {
+		if (Mathf.Abs (player.position.x - transform.position.x) < 1 && Mathf.Abs (player.position.y - transform.position.y) < 1) {
 			ManageAttack (true);
+			PlayerController hitPlayer = player.GetComponent<PlayerController> () as PlayerController;
+			hitPlayer.Damage(damage);
 		} else {
 			ManageAttack (false);
 		}

@@ -4,11 +4,7 @@ using UnityEngine;
 
 public abstract class ActionsController : MonoBehaviour
 {
-	public float restartLevelDelay = 1f;
-
 	public float speed;
-	public int health;
-	public int damage;
 
 	private Animator animator;
 	private Rigidbody2D rigidbody;
@@ -53,29 +49,12 @@ public abstract class ActionsController : MonoBehaviour
 		}
 	}
 
-	protected void Damage (int loss)
-	{
-		animator.SetTrigger ("hit");
-
-		health -= loss;
-
-		CheckIfGameOver();
-	}
-
 	protected void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.tag == "Exit") {
 			GameController.instance.Restart();
 
 			enabled = false;
-		}
-	}
-
-	void CheckIfGameOver ()
-	{
-		if (health <= 0)
-		{
-			GameController.instance.GameOver();
 		}
 	}
 
