@@ -11,7 +11,6 @@ public class PlayerController : ActionsController
 		bool action = Input.GetButton("Fire1");
 
 		ManageMovement(moveHorizontal, moveVertical);
-		ManageAttack(action);
 	}
 
 }

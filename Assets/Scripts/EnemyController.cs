@@ -15,13 +15,16 @@ public class EnemyController : ActionsController {
 
 	public void MoveEnemy ()
 	{
-		int moveHorizontal = 0;
-		int moveVertical = 0;
+		float moveHorizontal;
+		float moveVertical;
 
-		if (Mathf.Abs (player.position.x - transform.position.x) < 1) {
-			moveVertical = player.position.y > transform.position.y ? 1 : -1;
+		moveVertical = player.position.y - transform.position.y;
+		moveHorizontal = player.position.x - transform.position.x;
+
+		if (Mathf.Abs (player.position.x - transform.position.x) < 1.5 && Mathf.Abs (player.position.y - transform.position.y) < 1.5) {
+			ManageAttack (true);
 		} else {
-			moveHorizontal = player.position.x > transform.position.x ? 1 : -1;
+			ManageAttack (false);
 		}
 
 		ManageMovement(moveHorizontal, moveVertical);

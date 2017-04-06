@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public abstract class ActionsController : MonoBehaviour
 {
@@ -22,7 +21,7 @@ public abstract class ActionsController : MonoBehaviour
 
 	protected void ManageAttack (bool action)
 	{
-		animator.SetBool("attack", action);
+		animator.SetBool ("attack", action);
 	}
 
 	protected void ManageMovement (float horizontal, float vertical)
@@ -65,8 +64,8 @@ public abstract class ActionsController : MonoBehaviour
 
 	protected void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == "exit") {
-			Invoke("Restart", restartLevelDelay);
+		if (other.tag == "Exit") {
+			GameController.instance.Restart();
 
 			enabled = false;
 		}
@@ -78,11 +77,6 @@ public abstract class ActionsController : MonoBehaviour
 		{
 			GameController.instance.GameOver();
 		}
-	}
-
-	private void Restart ()
-	{
-		SceneManager.LoadScene(0);
 	}
 
 }
