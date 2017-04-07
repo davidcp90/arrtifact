@@ -23,7 +23,7 @@ public class EnemyController : ActionsController {
 		moveVertical = (player.position.y - transform.position.y) >= 0 ? 1 : -1;
 		moveHorizontal = (player.position.x - transform.position.x) >= 0 ? 1 : -1;
 
-		if (Mathf.Abs (player.position.x - transform.position.x) < 1 && Mathf.Abs (player.position.y - transform.position.y) < 1) {
+		if (Mathf.Abs (player.position.x - transform.position.x) < 1 && Mathf.Abs (player.position.y - transform.position.y) < 2) {
 			ManageAttack (true);
 			PlayerController hitPlayer = player.GetComponent<PlayerController> () as PlayerController;
 			hitPlayer.Damage(damage);
