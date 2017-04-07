@@ -20,8 +20,8 @@ public class EnemyController : ActionsController {
 		float moveHorizontal;
 		float moveVertical;
 
-		moveVertical = player.position.y - transform.position.y;
-		moveHorizontal = player.position.x - transform.position.x;
+		moveVertical = (player.position.y - transform.position.y) >= 0 ? 1 : -1;
+		moveHorizontal = (player.position.x - transform.position.x) >= 0 ? 1 : -1;
 
 		if (Mathf.Abs (player.position.x - transform.position.x) < 1 && Mathf.Abs (player.position.y - transform.position.y) < 1) {
 			ManageAttack (true);
